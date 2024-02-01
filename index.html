@@ -187,53 +187,138 @@
             background-size: 100% auto;
         }
 
-        .search_bar {
-            box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
-            border-radius: 45px;
-            width: 88%;
-            max-width: 400px;
-            margin: 10px auto;
-            height: 30px;
-            font-size: 30px;
-            font-weight: 560;
-            border: 0;
-            outline: none;
-            transition-duration: 0.4s;
-            animation: search-bar-expand 1s forwards;
-        }
-
-        @keyframes search-bar-expand {
-            from { max-width: 100px; }
-            to { max-width: 400px; }
-        }
-
-        #content {
-            position: fixed;
-            top: 100px;
-        }
-
-        #search_input {
-            height: 46px;
-            line-height: 46px;
-            font-weight: bolder;
-        }
-
-        .search.icon {
-            width: 28px;
-            height: 28px;
-        }
-
-        .bdSug_wpr {
-            display: none !important;
-        }
-
-        #box_container {
-            width: 88%;
-            transition-duration: 0.4s;
-            animation: box-container-expand 1s forwards;
-        }
+        /* 基础重置，消除内边距和外边距 */
+*{
+  padding:0;
+  margin:0;
+}
+/* 设置正文文本对齐和背景颜色 */
+body{
+  text-align:center;
+  background-color:#ffffff;
+}
+/* 缩小图片的样式 */
+img.smaller{
+  width:198px;
+  height:94px;
+  max-width:250px;
+  animation:flipInX 4s;
+  -webkit-animation:flipInX 4s;
+}
+/* Logo样式 */
+.logo{
+  font-size:2em;
+  white-space:normal;
+  word-wrap:break-word;
+  text-decoration:none;
+  color:#232323;
+}
+/* 搜索输入框样式 */
+#search_input{
+  width:90%;
+  height:45px;
+  background-color:transparent;
+  border:none;
+  outline:0;
+  font-size:18px;
+  color:#426ab3;
+  padding:0 20px;
+  border-radius:50px;
+  height: 46px; /* 更新后的高度 */
+  line-height: 46px; /* 更新后的行高 */
+  font-weight: bolder; /* 更新后的字体粗细 */
+}
+/* 搜索部分的样式 */
+.search_part{
+  margin-bottom:30px;
+  margin-top:20px;
+}
+/* 用于显示元素块的样式 */
+span{
+  display:block;
+  overflow:hidden;
+  padding-left:5px;
+  vertical-align:middle;
+}
+/* 搜索栏样式，包括阴影和背景色 */
+.search_bar{
+  box-shadow:0 0 18px rgba(70,70,40,.255);
+  -webkit-animation:fadeIn 2.5s;
+  animation:fadeIn 2.5s;
+  background-color:rgba(255,255,255,.100);
+  border-radius:25px;
+  display:table;
+  vertical-align:middle;
+  width:80%;
+  height:40px;
+  max-width:400px;
+  margin:10px auto;
+  /* 新增和更新的样式 */
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 45px;
+  width: 88%;
+  height: 30px;
+  font-size: 30px;
+  font-weight: 560;
+  transition-duration: 0.4s;
+  animation: search-bar-expand 1s forwards;
+}
+/* 搜索提交按钮样式 */
+#search_submit{
+  outline:0;
+  height:40px;
+  float:right;
+  color:#eee;
+  font-size:16px;
+  font-weight:700;
+  border:none;
+  background-color:transparent;
+  padding:0 13px 0 13px;
+}
+/* 内容样式 */
+#content{
+  width:100%;
+  text-align:center;
+  padding-top:15px;
+  padding-bottom:15px;
+  /* 更新后的定位和顶部距离 */
+  position: fixed;
+  top: 100px;
+}
+/* 盒子样式，包含动画 */
+.box{
+  -webkit-animation:fadeInDown 1s;
+  animation:fadeInDown 1s;
+  position:relative;
+  display:inline-block;
+  width:75px;
+  border:0;
+  /* 新增的样式 */
+  margin: 0;
+  width: 15%;
+}
+/* 新增的动画和其他样式 */
+@keyframes search-bar-expand {
+  from { max-width: 100px; }
+  to { max-width: 400px; }
+}
+.search.icon {
+  width: 28px;
+  height: 28px;
+}
+.bdSug_wpr {
+  display: none !important;
+}
+#box_container {
+  width: 88%;
+  transition-duration: 0.4s;
+  animation: box-container-expand 1s forwards;
+}
+@keyframes box-container-expand {
+  from { max-width: 100px; }
+  to { max-width: 400px; }
+}
 
         @keyframes box-container-expand {
             from { max-width: 100px; }
