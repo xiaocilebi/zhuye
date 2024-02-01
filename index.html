@@ -14,7 +14,7 @@
 <div class="search_part">
 <a class="logo" href="" onclick="window.via.cmd(257);" title="书签"><img style="-webkit-user-select: none;" src="http://baidulogo.bj.bcebos.com/logo/blu8lym82f9414gf7vgnoina4wlnvsa7.gif" style="display:block;" width="60%"></a>
 <form onsubmit="return search()" class="search_bar" title="搜索">
-<button onclick="search()" id="search_submit" value="" aria-label="搜索"><div class="search icon"></div></button>
+<button type="submit" id="search_submit" aria-label="搜索"><div class="search icon"></div></button>
 <span><input class="search" onfocus="showButton()" onblur="hideButton()" type="text" value="" autocomplete="off" id="search_input" title="搜索"></span>
 </form>
 </div>
@@ -24,28 +24,18 @@ function hideButton(){if(document.getElementById("search_input").value == ""){do
 function search(){
     var a = document.getElementById("search_input");
     if(a.value != ""){
-        try{
-            window.via.searchText(a.value);
-        }catch(b){
-            alert(b);
-        }
+        // 构建目标URL，这里以Google搜索为例
+        var targetUrl = "https://www.google.com/search?q=" + encodeURIComponent(a.value);
+        // 重定向浏览器到构建的URL
+        window.location.href = targetUrl;
+        // 重置输入框的值并隐藏搜索按钮
         a.value = "";
         document.getElementById("search_submit").style.display="none";
         document.activeElement.blur();
     }
+    // 防止表单实际提交
     return false;
 }
-function fadeIn(a){
-    if(a && a.style){
-        var b = Math.max(.05, parseFloat(a.style.opacity)),
-        d = setInterval(function(){
-            if(b >= 1) clearInterval(d);
-            a.style.opacity = Math.min(1, b);
-            b += .1 * b;
-        }, 6);
-    }
-}
-// Removed gesture control initialization calls
 </script>
 <script src="opensug2.js"></script>
 <script type="text/javascript">
