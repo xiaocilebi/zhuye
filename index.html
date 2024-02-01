@@ -214,7 +214,7 @@ img.smaller{
   color:#232323;
 }
 /* 搜索输入框样式 */
-#search_input{
+  search_input{
   width:90%;
   height:45px;
   background-color:transparent;
@@ -241,29 +241,21 @@ span{
   vertical-align:middle;
 }
 /* 搜索栏样式，包括阴影和背景色 */
-.search_bar{
-  box-shadow:0 0 18px rgba(70,70,40,.255);
-  -webkit-animation:fadeIn 2.5s;
-  animation:fadeIn 2.5s;
-  background-color:rgba(255,255,255,.100);
-  border-radius:25px;
-  display:table;
-  vertical-align:middle;
-  width:80%;
-  height:40px;
-  max-width:400px;
-  margin:10px auto;
-  /* 新增和更新的样式 */
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
-  border-radius: 45px;
-  width: 88%;
-  height: 30px;
-  font-size: 30px;
-  font-weight: 560;
-  transition-duration: 0.4s;
-  animation: search-bar-expand 1s forwards;
-}
+box-shadow: 0 0 18px rgba(70, 70, 40, 0.255);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: 45px;
+            width: 88%;
+            max-width: 400px;
+            margin: 10px auto;
+            height: 30px;
+            font-size: 30px;
+            font-weight: 560;
+            border: 0;
+            outline: none;
+            transition-duration: 0.4s;
+            animation: search-bar-expand 1s forwards;
+        }
 /* 搜索提交按钮样式 */
 #search_submit{
   outline:0;
