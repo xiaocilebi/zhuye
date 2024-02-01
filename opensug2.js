@@ -1,3 +1,79 @@
-var OpenSuggestion=function(){function n(b){var a=function(c){c=c.target.value;try{window.via.requestSuggestions(c)}catch(d){}};b.addEventListener("input",a);b.addEventListener("focus",a);document.addEventListener("click",function(){b!=document.activeElement&&l()},!1)}function p(b){h.innerHTML="";if(b&&0!=b.length){g.style.display="block";k.style.borderRadius=[e,e,"0 0"].join(" ");for(var a=0,c=b.length;a<c;a++){var d=b[a].toString(),f=document.createElement("td");f.innerText=d;d=document.createElement("tr");
-d.onclick=function(q){m(q.target.innerText)};d.appendChild(f);h.append(d)}}else l()}function l(){"none"!==g.style.display&&(g.style.display="none",k.style.borderRadius=e)}var k,g,h,m,e="0";return{bind:function(b,a,c){if(b=document.getElementById(b)){a.radius&&(e=a.radius);m=c;b:{for(a=b.parentNode;a;){if("FORM"===a.tagName)break b;a=a.parentNode}a=null}if(a){k=a;if(!g&&!h){c=document.createElement("div");c.className="opSug_wpr";c.style.display="none";c.style.borderRadius=["0 0",e,e].join(" ");var d=
-document.createElement("table"),f=document.createElement("tbody");f.id="sug_tbody";d.appendChild(f);c.appendChild(d);g=c;h=f;a.parentNode.insertBefore(c,a.nextSibling)}n(b)}else console.error("Must bind to an element that has form parent elment");console.log("bind")}},pushSuggestions:function(b){p(b)}}}();
+const OpenSuggestion = (function() {
+    let formElement, suggestionsWrapper, suggestionsList, onSelectSuggestion, borderRadius = '0';
+
+    // 绑定输入和聚焦事件
+    function bindInputEvents(inputElement) {
+        const handleInput = event => {
+            const value = event.target.value;
+            try {
+                window.via.requestSuggestions(value);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        inputElement.addEventListener('input', handleInput);
+        inputElement.addEventListener('focus', handleInput);
+    }
+
+    // 显示或更新建议列表
+    function updateSuggestions(suggestions) {
+        suggestionsList.innerHTML = ""; // 清空建议列表
+        if (suggestions && suggestions.length) {
+            suggestionsWrapper.style.display = "block";
+            suggestions.forEach(suggestion => {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.textContent = suggestion.toString();
+                row.appendChild(cell);
+                row.addEventListener('click', () => onSelectSuggestion(suggestion));
+                suggestionsList.appendChild(row);
+            });
+        } else {
+            hideSuggestions();
+        }
+    }
+
+    // 隐藏建议列表
+    function hideSuggestions() {
+        if (suggestionsWrapper.style.display !== "none") {
+            suggestionsWrapper.style.display = "none";
+        }
+    }
+
+    return {
+        bind: function(inputId, options, onSelect) {
+            const inputElement = document.getElementById(inputId);
+            if (!inputElement) {
+                console.error("Input element not found");
+                return;
+            }
+
+            if (options.radius) {
+                borderRadius = options.radius;
+            }
+            onSelectSuggestion = onSelect;
+
+            formElement = inputElement.closest('form');
+            if (!formElement) {
+                console.error("Must bind to an element within a form");
+                return;
+            }
+
+            if (!suggestionsWrapper) {
+                suggestionsWrapper = document.createElement('div');
+                suggestionsWrapper.className = "opSug_wpr";
+                suggestionsWrapper.style.display = "none";
+                suggestionsList = document.createElement('tbody');
+                const table = document.createElement('table');
+                table.appendChild(suggestionsList);
+                suggestionsWrapper.appendChild(table);
+                formElement.appendChild(suggestionsWrapper);
+            }
+
+            bindInputEvents(inputElement);
+            document.addEventListener('click', hideSuggestions, false);
+        },
+        pushSuggestions: updateSuggestions
+    };
+})();
