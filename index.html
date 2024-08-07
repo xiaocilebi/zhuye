@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="bookmark" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
+    <link rel="bookmark" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg"/>
     <meta name="apple-mobile-web-app-title" content="主页">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
     <title>主页</title>
     <link rel="icon" type="image/ico" href="/favicon.ico">
-    <meta name="description" content="简单纯粹的手机导航网站。">
-    <meta name="keywords" content="手机导航,主页">
+    <meta name="description" content="简单纯粹的手机导航网站。"/>
+    <meta name="keywords" content="手机导航,"/>
     <style>
-        /* 全局样式重置 */
+        /* 全局重置样式，去掉所有元素的内外边距 */
         * {
             padding: 0;
             margin: 0;
         }
+        /* 设置body的文本居中和背景色 */
         body {
             text-align: center;
             background-color: #ffffff;
         }
+        /* 设置图片的大小和动画效果 */
         img.smaller {
             width: 198px;
             height: 94px;
@@ -27,12 +29,15 @@
             animation: flipInX 4s;
             -webkit-animation: flipInX 4s;
         }
+        /* logo的样式，设置字体大小和颜色等 */
         .logo {
             font-size: 2em;
+            white-space: normal;
             word-wrap: break-word;
             text-decoration: none;
             color: #232323;
         }
+        /* 搜索输入框的样式 */
         #search_input {
             width: 90%;
             height: 45px;
@@ -44,13 +49,24 @@
             padding: 0 20px;
             border-radius: 50px;
         }
+        /* 搜索部分的外边距设置 */
         .search_part {
-            margin: 20px 0 30px;
+            margin-bottom: 30px;
+            margin-top: 20px;
         }
+        /* 通用span样式 */
+        span {
+            display: block;
+            overflow: hidden;
+            padding-left: 5px;
+            vertical-align: middle;
+        }
+        /* 搜索栏的样式 */
         .search_bar {
             box-shadow: 0 0 18px rgba(70, 70, 40, .255);
+            -webkit-animation: fadeIn 2.5s;
             animation: fadeIn 2.5s;
-            background-color: rgba(255, 255, 255, .1);
+            background-color: rgba(255, 255, 255, .100);
             border-radius: 25px;
             display: table;
             vertical-align: middle;
@@ -59,6 +75,7 @@
             max-width: 400px;
             margin: 10px auto;
         }
+        /* 搜索提交按钮的样式 */
         #search_submit {
             outline: 0;
             height: 40px;
@@ -68,26 +85,40 @@
             font-weight: 700;
             border: none;
             background-color: transparent;
-            padding: 0 13px;
+            padding: 0 13px 0 13px;
         }
+        /* 内容部分的样式 */
         #content {
             width: 100%;
             text-align: center;
-            padding: 15px 0;
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
+        /* 图标的通用样式 */
         .icon {
             border: 0;
-            width: 3em;
-            height: 3em;
-            max-width: 72px;
         }
+        /* 图标前的花样符号 */
+        .icon:before {
+            position: absolute;
+            top: -6px;
+            left: 0px;
+            font-size: 20px;
+            content: '✿';
+            height: 0;
+            background-color: currentColor;
+            color: #b8b8b8;
+        }
+        /* 图标容器的动画和定位样式 */
         .box {
+            -webkit-animation: fadeInDown 1s;
             animation: fadeInDown 1s;
             position: relative;
             display: inline-block;
             width: 75px;
             border: 0;
         }
+        /* 链接覆盖整个图标容器 */
         .box a {
             width: 100%;
             height: 100%;
@@ -95,6 +126,7 @@
             left: 0;
             top: 0;
         }
+        /* URL显示的样式 */
         .url {
             color: #000;
             height: 1.5em;
@@ -104,24 +136,71 @@
             white-space: nowrap;
             overflow: hidden;
             margin: auto;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
             text-overflow: ellipsis;
-            padding: 3px 0 8px;
+            -o-text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+            padding-top: 3px;
+            padding-bottom: 8px;
         }
-        @keyframes flipInX {
+        /* 图标的样式 */
+        .icon {
+            width: 3em;
+            height: 3em;
+            max-width: 72px;
+        }
+        /* 动画关键帧：翻转效果 */
+        @-webkit-keyframes flipInX {
             0% {
+                -webkit-transform: perspective(400px) rotateX(90deg);
                 transform: perspective(400px) rotateX(90deg);
                 opacity: 0;
             }
             40% {
+                -webkit-transform: perspective(400px) rotateX(-10deg);
                 transform: perspective(400px) rotateX(-10deg);
             }
             70% {
+                -webkit-transform: perspective(400px) rotateX(10deg);
                 transform: perspective(400px) rotateX(10deg);
             }
             100% {
+                -webkit-transform: perspective(400px) rotateX(0);
                 transform: perspective(400px) rotateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes flipInX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(90deg);
+                -ms-transform: perspective(400px) rotateX(90deg);
+                transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            40% {
+                -webkit-transform: perspective(400px) rotateX(-10deg);
+                -ms-transform: perspective(400px) rotateX(-10deg);
+                transform: perspective(400px) rotateX(-10deg);
+            }
+            70% {
+                -webkit-transform: perspective(400px) rotateX(10deg);
+                -ms-transform: perspective(400px) rotateX(10deg);
+                transform: perspective(400px) rotateX(10deg);
+            }
+            100% {
+                -webkit-transform: perspective(400px) rotateX(0);
+                -ms-transform: perspective(400px) rotateX(0);
+                transform: perspective(400px) rotateX(0);
+                opacity: 1;
+            }
+        }
+        /* 动画关键帧：淡入效果 */
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
                 opacity: 1;
             }
         }
@@ -133,90 +212,55 @@
                 opacity: 1;
             }
         }
-        @keyframes fadeInDown {
+        /* 动画关键帧：向下淡入效果 */
+        @-webkit-keyframes fadeInDown {
             0% {
                 opacity: 0;
+                -webkit-transform: translateY(-20px);
                 transform: translateY(-20px);
             }
             100% {
                 opacity: 1;
+                -webkit-transform: translateY(0);
                 transform: translateY(0);
             }
         }
-    </style>
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?fafa48c9812cf9e721bde90f8a9a017e";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-
-        function search() {
-            var input = document.getElementById("search_input").value;
-            if (input) {
-                window.location.href = "https://www.google.com/search?q=" + input;
-                document.getElementById("search_input").value = "";
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(-20px);
+                -ms-transform: translateY(-20px);
+                transform: translateY(-20px);
             }
-            return false;
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -ms-transform: translateY(0);
+                transform: translateY(0);
+            }
         }
-    </script>
-</head>
-<body>
-    <div id="content">
-        <div class="search_part">
-            <a class="logo" href="https://m.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_PclogoS_8whnvm25&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pcs">
-                <img class="smaller" src="logo.gif" alt="logo">
-            </a>
-            <form onsubmit="return search()" class="search_bar">
-                <span>
-                    <input class="search" type="text" id="search_input" autocomplete="off">
-                    <button id="search_submit" type="submit">搜索</button>
-                </span>
-            </form>
-        </div>
-        <!-- 快捷链接部分 -->
-        <div class="box">
-            <a href="https://g.co/kgs/3DGUEMA" target="_self"></a>
-            <img class="icon" src="tianqi.png" alt="天气">
-            <p class="url">天气</p>
-        </div>
-        <div class="box">
-            <a href="https://cn.pornhub.com" target="_self"></a>
-            <img class="icon" src="dy.jpg" alt="成人">
-            <p class="url">成人</p>
-        </div>
-        <div class="box">
-            <a href="https://www.twitter.com" target="_self"></a>
-            <img class="icon" src="twitter.png" alt="推特">
-            <p class="url">推特</p>
-        </div>
-        <div class="box">
-            <a href="https://theporndude.com" target="_self"></a>
-            <img class="icon" src="zhihu.png" alt="导航">
-            <p class="url">导航</p>
-        </div>
-        <div class="box">
-            <a href="https://translate.google.com/?source=osdd&sl=zh-CN&tl=en&op=translate" target="_self"></a>
-            <img class="icon" src="fanyi.svg" alt="翻译">
-            <p class="url">翻译</p>
-        </div>
-        <div class="box">
-            <a href="https://m.bilibili.com" target="_self"></a>
-            <img class="icon" src="bilibili.png" alt="B站">
-            <p class="url">B站</p>
-        </div>
-        <div class="box">
-            <a href="https://www.coolapk.com" target="_self"></a>
-            <img class="icon" src="coolpad.png" alt="酷安">
-            <p class="url">酷安</p>
-        </div>
-        <div class="box">
-            <a href="http://43.199.71.183:8811" target="_self"></a>
-            <img class="icon" src="lianshu.png" alt="脸书">
-            <p class="url">脸书</p>
-        </div>
-    </div>
-</body>
-</html>
+        /* 输入预测样式 */
+        li {
+            list-style: none;
+        }
+        li:hover {
+            background: #ccc;
+        }
+        #btn {
+            width: 150px;
+            padding: 10px 10px;
+            border: 1px solid rgb(244, 248, 244);
+        }
+        a {
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.8);
+            outline: none;
+            height: 35px;
+            line-height: 35px;
+        }
+        /* 内容部分居中 */
+        #content {
+            position: absolute;
+            top
