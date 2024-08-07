@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="bookmark" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg"/>
+    <!-- Bookmark Icon -->
+    <link rel="bookmark" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
+    <!-- Apple Mobile Web App Title -->
     <meta name="apple-mobile-web-app-title" content="主页">
+    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
     <title>主页</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/ico" href="/favicon.ico">
-    <meta name="description" content="主页是一个简单，纯粹的手机导航网站。"/>
-    <meta name="keywords" content="手机导航,主页"/>
+    <!-- Meta Description -->
+    <meta name="description" content="简单的手机导航网站">
+    <!-- Meta Keywords -->
+    <meta name="keywords" content="手机导航,">
+    <!-- CSS Styles -->
     <style>
+        /* Reset padding and margin for all elements */
         * {
             padding: 0;
             margin: 0;
         }
+        /* Center align text and set background color */
         body {
             text-align: center;
-            background-color: #ffffff;
+            background-color: #ffff;
         }
+        /* Style for the logo image */
         img.smaller {
             width: 198px;
             height: 94px;
@@ -26,6 +36,7 @@
             animation: flipInX 4s;
             -webkit-animation: flipInX 4s;
         }
+        /* Style for the logo text */
         .logo {
             font-size: 2em;
             white-space: normal;
@@ -33,6 +44,7 @@
             text-decoration: none;
             color: #232323;
         }
+        /* Style for the search input box */
         #search_input {
             width: 90%;
             height: 45px;
@@ -44,18 +56,21 @@
             padding: 0 20px;
             border-radius: 50px;
         }
+        /* Margin settings for the search bar container */
         .search_part {
             margin-bottom: 30px;
             margin-top: 20px;
         }
+        /* Overflow hidden for span elements */
         span {
             display: block;
             overflow: hidden;
             padding-left: 5px;
             vertical-align: middle;
         }
+        /* Style for the search bar */
         .search_bar {
-            box-shadow: 0 0 18px rgba(70, 70, 40, .255);
+            box-shadow: 0 18px rgba(70, 70, 40, 255);
             -webkit-animation: fadeIn 2.5s;
             animation: fadeIn 2.5s;
             background-color: rgba(255, 255, 255, .100);
@@ -67,6 +82,7 @@
             max-width: 400px;
             margin: 10px auto;
         }
+        /* Search submit button style */
         #search_submit {
             outline: 0;
             height: 40px;
@@ -76,27 +92,30 @@
             font-weight: 700;
             border: none;
             background-color: transparent;
-            padding: 0 13px 0 13px;
+            padding: 0 13px;
         }
+        /* Content container style */
         #content {
             width: 100%;
             text-align: center;
             padding-top: 15px;
             padding-bottom: 15px;
         }
+        /* Style for icon elements */
         .icon {
             border: 0;
         }
         .icon:before {
             position: absolute;
-            top: -6px;
-            left: 0px;
-            font-size: 20px;
+            top: -6px; /* Position adjustment for top */
+            left: 0px; /* Position adjustment for left */
+            font-size: 20px; /* Font size for the icon */
             content: '✿';
             height: 0;
             background-color: currentColor;
             color: #b8b8b8;
         }
+        /* Style for the box container */
         .box {
             -webkit-animation: fadeInDown 1s;
             animation: fadeInDown 1s;
@@ -112,6 +131,7 @@
             left: 0;
             top: 0;
         }
+        /* Style for URL text */
         .url {
             color: #000;
             height: 1.5em;
@@ -129,11 +149,13 @@
             padding-top: 3px;
             padding-bottom: 8px;
         }
+        /* Style for icons inside the box */
         .icon {
             width: 3em;
             height: 3em;
             max-width: 72px;
         }
+        /* Keyframes for flipInX animation */
         @-webkit-keyframes flipInX {
             0% {
                 -webkit-transform: perspective(400px) rotateX(90deg);
@@ -178,6 +200,7 @@
                 opacity: 1;
             }
         }
+        /* Keyframes for fadeIn animation */
         @-webkit-keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -194,6 +217,7 @@
                 opacity: 1;
             }
         }
+        /* Keyframes for fadeInDown animation */
         @-webkit-keyframes fadeInDown {
             0% {
                 opacity: 0;
@@ -220,39 +244,8 @@
                 transform: translateY(0);
             }
         }
-        /* 下面是输入预测 */
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        li {
-            list-style: none;
-        }
-        li:hover {
-            background: #ccc;
-        }
-        #btn {
-            width: 150px;
-            padding: 10px 10px;
-            border: 1px solid rgb(244, 248, 244);
-        }
-        a {
-            display: inline-block;
-            width: 100%;
-            text-decoration: none;
-            color: rgba(0, 0, 0, 0.8);
-            outline: none;
-            height: 35px;
-            line-height: 35px;
-        }
-        /* 下面是居中 */
-        #content {
-            position: absolute;
-            top: 50%;
-            height: 100px;
-            margin-top: -200px;
-        }
     </style>
+    <!-- Baidu Analytics Script -->
     <script>
         var _hmt = _hmt || [];
         (function() {
@@ -267,4 +260,89 @@
     <div id="content">
         <br>
         <div class="search_part">
-            <a class="logo" href="https://m.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8
+            <!-- Logo Link -->
+            <a class="logo" href="https://m.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9        %E6%B2%9B%E4%BA%8B&tn=SE_PclogoS_8whnvm25&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pcs">
+                <img class="smaller" src="logo.gif">
+            </a>
+            <br>
+            <!-- Search Form -->
+            <form onsubmit="return search()" class="search_bar">
+                <span>
+                    <input class="search" type="text" value="" autocomplete="off" id="search_input">
+                </span>
+                <ul id="ul"></ul>
+            </form>
+        </div>
+        <br>
+        <!-- Navigation Boxes -->
+        <div class="box">
+            <a href="https://g.co/kgs/3DGUEMA" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="tianqi.png">
+            </p>
+            <p class="url">天气</p>
+        </div>
+        <div class="box">
+            <a href="www.pornhub.com" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="dy.jpg">
+            </p>
+            <p class="url">成人</p>
+        </div>
+        <div class="box">
+            <a href="https://www.twitter.com/" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="twitter.png">
+            </p>
+            <p class="url">推特</p>
+        </div>
+        <div class="box">
+            <a href="https://theporndude.com/" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="zhihu.png">
+            </p>
+            <p class="url">导航</p>
+        </div>
+        <br>
+        <div class="box">
+            <a href="https://translate.google.com/?source=osdd&sl=zh-CN&tl=en&op=translate" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="fanyi.svg">
+            </p>
+            <p class="url">翻译</p>
+        </div>
+        <div class="box">
+            <a href="https://m.bilibili.com/" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="bilibili.png">
+            </p>
+            <p class="url">B站</p>
+        </div>
+        <div class="box">
+            <a href="https://www.coolapk.com" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="coolpad.png">
+            </p>
+            <p class="url">酷安</p>
+        </div>
+        <div class="box">
+            <a href="http://xiaocilebi.xyz:8811" target="_self" class="click"></a>
+            <p>
+                <img class="icon" src="lianshu.png">
+            </p>
+            <p class="url">脸书</p>
+        </div>
+        <!-- Search Function Script -->
+        <script type="text/javascript">
+            function search() {
+                if (document.getElementById("search_input").value != "") {
+                    window.location.href = "https://www.google.com/search?q=" + document.getElementById("search_input").value;
+                    document.getElementById("search_input").value = "";
+                }
+                return false;
+            }
+        </script>
+    </div>
+</body>
+</html>
+
