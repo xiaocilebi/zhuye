@@ -203,37 +203,62 @@ color: #b8b8b8;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>嵌入网页示例</title>
     <style>
-        .iframe-container {
+        .tabs {
             display: flex;
-            flex-direction: column; /* 将方向改为列方向，实现垂直排列 */
-            width: 100%;
-            height: 200vh; /* 设置容器高度为视口高度的两倍 */
-            margin: 0; /* 去掉默认的外边距 */
-            padding: 0; /* 去掉默认的内边距 */
-            border: none; /* 去掉容器的边框 */
-            overflow: hidden; /* 去掉滚动条 */
-            background-color: #ffffff; /* 设置背景颜色 */
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+        }
+        .tab-content {
+            display: none;
+            height: 100vh;
+        }
+        .tab-content.active {
+            display: block;
         }
         .iframe-container iframe {
-            width: 100%; /* 每个 iframe 占据全部宽度 */
-            height: 100vh; /* 设置 iframe 高度为视口高度 */
-            border: none; /* 去掉 iframe 的边框 */
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         body, html {
-            margin: 0; /* 去掉 body 和 html 的默认外边距 */
-            padding: 0; /* 去掉 body 和 html 的默认内边距 */
-            height: 100%; /* 使 body 和 html 高度为 100% */
-            overflow: hidden; /* 防止出现滚动条 */
-            background-color: #ffffff; /* 设置背景颜色 */
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
-    <div class="iframe-container">
-        <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
-        <iframe src="https://n3xt.chat" allowfullscreen></iframe> <!-- 替换为你希望嵌入的第二个网站 -->
+    <div class="tabs">
+        <div class="tab" onclick="openTab('tab1')">网站1</div>
+        <div class="tab" onclick="openTab('tab2')">网站2</div>
     </div>
+    <div id="tab1" class="tab-content active">
+        <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
+    </div>
+    <div id="tab2" class="tab-content">
+        <iframe src="https://n3xt.chat" allowfullscreen></iframe>
+    </div>
+    <script>
+        function openTab(tabId) {
+            var tabs = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
