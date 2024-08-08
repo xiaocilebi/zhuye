@@ -14,7 +14,7 @@
     <meta name="keywords" content="yuoo,m.yuoo.cn,手机导航,主页"/>
     <style>
         *{padding:0;margin:0}
-        body{text-align:center;background-color:#ffffff}
+        body{text-align:center;background-color:#ffffff; overflow: hidden;}
         img.smaller{width:198px;height:94px;max-width:250px;animation:flipInX 4s;-webkit-animation:flipInX 4s}
         .logo{font-size:2em;white-space:normal;word-wrap:break-word;text-decoration:none;color:#232323}
         #search_input{width:90%;height:45px;background-color:transparent;border:none;outline:0;font-size:18px;color:#426ab3;padding:0 20px;border-radius:50px}
@@ -22,7 +22,7 @@
         span{display:block;overflow:hidden;padding-left:5px;vertical-align:middle}
         .search_bar{box-shadow:0 0 18px rgba(70,70,40,.255);-webkit-animation:fadeIn 2.5s;animation:fadeIn 2.5s;background-color:rgba(255,255,255,.100);border-radius:25px;display:table;vertical-align:middle;width:80%;height:40px;max-width:400px;margin:10px auto}
         #search_submit{outline:0;height:40px;float:right;color:#eee;font-size:16px;font-weight:700;border:none;background-color:transparent;padding:0 13px 0 13px}
-        #content{width:100%;text-align:center;padding-top:15px;padding-bottom:15px}
+        #content{width:100%;text-align:center;padding-top:15px;padding-bottom:15px;height:100vh;overflow:hidden;}
         .icon {
             border: 0;
         }
@@ -53,11 +53,14 @@
         #btn{width:150px;padding:10px 10px;border:1px solid rgb(244,248,244)}
         a{display:inline-block;width:100%;text-decoration:none;color:rgba(0,0,0,0.8);outline:none;height:35px;line-height:35px}
         <!--下面是居中-->
-        #content{position:absolute;top:50%;height:100px;margin-top:-200px}
         .iframe-container {
             display: none;
-            height: 200vh; /* 设置 iframe 高度为视口高度的两倍 */
+            height: 100vh; /* 设置 iframe 容器高度为视口高度 */
             width: 100%;
+            overflow: hidden;
+            position: absolute; /* 确保它在主内容的后面 */
+            top: 0;
+            left: 0;
         }
         .iframe-container.active {
             display: block;
@@ -66,6 +69,7 @@
             width: 100%;
             height: 100%;
             border: none;
+            overflow: auto; /* 允许 iframe 内容滚动 */
         }
     </style>
     <script>
@@ -106,52 +110,52 @@
         </div>
         <br>
         <div class="box">
-            <a href="https://g.co/kgs/3DGUEMA "target="_self"class="click"></a>
-            <p><img class="icon"src="tianqi.png"></p>
+            <a href="https://g.co/kgs/3DGUEMA" target="_self" class="click"></a>
+            <p><img class="icon" src="tianqi.png" alt="天气"></p>
             <p class="url">天气</p>
         </div>
         <div class="box">
-            <a href="https://www.pornhub.com"target="_self"class="click"></a>
-            <p><img class="icon"src="dy.svg"></p>
+            <a href="https://www.pornhub.com" target="_self" class="click"></a>
+            <p><img class="icon" src="dy.svg" alt="成人"></p>
             <p class="url">成人</p>
         </div>
         <div class="box">
-            <a href="https://www.twitter.com/"target="_self"class="click"></a>
-            <p><img class="icon"src="tt.png"></p>
+            <a href="https://www.twitter.com/" target="_self" class="click"></a>
+            <p><img class="icon" src="tt.png" alt="推特"></p>
             <p class="url">推特</p>
         </div>
         <div class="box">
-            <a href="https://theporndude.com/"target="_self"class="click"></a>
-            <p><img class="icon"src="zhihu.svg"></p>
+            <a href="https://theporndude.com/" target="_self" class="click"></a>
+            <p><img class="icon" src="zhihu.svg" alt="导航"></p>
             <p class="url">导航</p>
         </div>
         <br>
         <div class="box">
-            <a href="https://translate.google.com/?source=osdd&sl=zh-CN&tl=en&op=translate"target="_self"class="click"></a>
-            <p><img class="icon"src="fanyi.svg"></p>
+            <a href="https://translate.google.com/?source=osdd&sl=zh-CN&tl=en&op=translate" target="_self" class="click"></a>
+            <p><img class="icon" src="fanyi.svg" alt="翻译"></p>
             <p class="url">翻译</p>
         </div>
         <div class="box">
-            <a href="https://m.bilibili.com/"target="_self"class="click"></a>
-            <p><img class="icon"src="bilibili.png"></p>
+            <a href="https://m.bilibili.com/" target="_self" class="click"></a>
+            <p><img class="icon" src="bilibili.png" alt="B站"></p>
             <p class="url">B站</p>
         </div>
         <div class="box">
-            <a href="https://www.coolapk.com"target="_self"class="click"></a>
-            <p><img class="icon"src="coolpad.png"></p>
+            <a href="https://www.coolapk.com" target="_self" class="click"></a>
+            <p><img class="icon" src="coolpad.png" alt="酷安"></p>
             <p class="url">酷安</p>
         </div>
         <div class="box">
-            <a href="http://43.199.71.183:8811"target="_self"class="click"></a>
-            <p><img class="icon"src="lianshu.png"></p>
+            <a href="http://43.199.71.183:8811" target="_self" class="click"></a>
+            <p><img class="icon" src="lianshu.png" alt="脸书"></p>
             <p class="url">脸书</p>
         </div>
-        <div id="tab1" class="iframe-container active">
-            <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
-        </div>
-        <div id="tab2" class="iframe-container">
-            <iframe src="https://n3xt.chat" allowfullscreen></iframe>
-        </div>
+    </div>
+    <div id="tab1" class="iframe-container active">
+        <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
+    </div>
+    <div id="tab2" class="iframe-container">
+        <iframe src="https://n3xt.chat" allowfullscreen></iframe>
     </div>
 </body>
 </html>
