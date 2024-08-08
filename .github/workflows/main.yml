@@ -9,16 +9,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: List files
-        run: ls -al ziti
-
       - name: Unzip file
         run: unzip ziti/zhuzi-font.zip -d ziti/unzipped-fonts
-      
+
       - name: Commit changes
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           git add ziti/unzipped-fonts
           git commit -m 'Unzipped zhuzi-font.zip'
-          git push
+          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/你的用户名/你的仓库名.git HEAD:main
