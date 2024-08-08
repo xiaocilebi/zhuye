@@ -5,61 +5,132 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="bookmark" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg"/>
-    <meta name="apple-mobile-web-app-title" content="YUOO主页">
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
     <title>YUOO主页</title>
-    <link rel="icon" type="image/ico" href="/favicon.ico">
-    <meta name="description" content="YUOO主页是一个简单，纯粹的手机导航网站。"/>
-    <meta name="keywords" content="yuoo,m.yuoo.cn,手机导航,主页"/>
     <style>
-        *{padding:0;margin:0}
-        body{text-align:center;background-color:#ffffff; overflow: hidden;}
-        img.smaller{width:198px;height:94px;max-width:250px;animation:flipInX 4s;-webkit-animation:flipInX 4s}
-        .logo{font-size:2em;white-space:normal;word-wrap:break-word;text-decoration:none;color:#232323}
-        #search_input{width:90%;height:45px;background-color:transparent;border:none;outline:0;font-size:18px;color:#426ab3;padding:0 20px;border-radius:50px}
-        .search_part{margin-bottom:30px;margin-top:20px}
-        span{display:block;overflow:hidden;padding-left:5px;vertical-align:middle}
-        .search_bar{box-shadow:0 0 18px rgba(70,70,40,.255);-webkit-animation:fadeIn 2.5s;animation:fadeIn 2.5s;background-color:rgba(255,255,255,.100);border-radius:25px;display:table;vertical-align:middle;width:80%;height:40px;max-width:400px;margin:10px auto}
-        #search_submit{outline:0;height:40px;float:right;color:#eee;font-size:16px;font-weight:700;border:none;background-color:transparent;padding:0 13px 0 13px}
-        #content{width:100%;text-align:center;padding-top:15px;padding-bottom:15px}
-        .icon {
+        /* Define the custom font-face */
+        @font-face {
+            font-family: 'ZhuziFont';
+            src: url('zhuzi-font.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Apply the custom font */
+        * {
+            font-family: 'ZhuziFont', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            text-align: center;
+            background-color: #ffffff;
+        }
+        img.smaller {
+            width: 198px;
+            height: 94px;
+            max-width: 250px;
+            animation: flipInX 4s;
+            -webkit-animation: flipInX 4s;
+        }
+        .logo {
+            font-size: 2em;
+            white-space: normal;
+            word-wrap: break-word;
+            text-decoration: none;
+            color: #232323;
+        }
+        #search_input {
+            width: 90%;
+            height: 45px;
+            background-color: transparent;
+            border: none;
+            outline: 0;
+            font-size: 18px;
+            color: #426ab3;
+            padding: 0 20px;
+            border-radius: 50px;
+        }
+        .search_part {
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        span {
+            display: block;
+            overflow: hidden;
+            padding-left: 5px;
+            vertical-align: middle;
+        }
+        .search_bar {
+            box-shadow: 0 0 18px rgba(70, 70, 40, .255);
+            -webkit-animation: fadeIn 2.5s;
+            animation: fadeIn 2.5s;
+            background-color: rgba(255, 255, 255, .100);
+            border-radius: 25px;
+            display: table;
+            vertical-align: middle;
+            width: 80%;
+            height: 40px;
+            max-width: 400px;
+            margin: 10px auto;
+        }
+        #search_submit {
+            outline: 0;
+            height: 40px;
+            float: right;
+            color: #eee;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            background-color: transparent;
+            padding: 0 13px 0 13px;
+        }
+        #content {
+            width: 100%;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        .box {
+            -webkit-animation: fadeInDown 1s;
+            animation: fadeInDown 1s;
+            position: relative;
+            display: inline-block;
+            width: 75px;
             border: 0;
         }
-        .icon:before {
+        .box a {
+            width: 100%;
+            height: 100%;
             position: absolute;
-            top: -6px; /* 上下 */
-            left: 0px; /* 左右 */
-            font-size: 20px; /* 调大小 */
-            content: '✿';
-            height: 0;
-            background-color: currentColor;
-            color: #b8b8b8;
+            left: 0;
+            top: 0;
         }
-        .box{-webkit-animation:fadeInDown 1s;animation:fadeInDown 1s;position:relative;display:inline-block;width:75px;border:0}
-        .box a{width:100%;height:100%;position:absolute;left:0;top:0}
-        .url{color:#000;height:1.5em;line-height:1.5em;width:72px;font-size:0.75em;white-space:nowrap;overflow:hidden;margin:auto;-webkit-border-top-right-radius:5px;-webkit-border-bottom-right-radius:5px;text-overflow:ellipsis;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;padding-top:3px;padding-bottom:8px}
-        .icon{width:3em;height:3em;max-width:72px}
-        @-webkit-keyframes flipInX{0%{-webkit-transform:perspective(400px)rotateX(90deg);transform:perspective(400px)rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(400px)rotateX(-10deg);transform:perspective(400px)rotateX(-10deg)}70%{-webkit-transform:perspective(400px)rotateX(10deg);transform:perspective(400px)rotateX(10deg)}100%{-webkit-transform:perspective(400px)rotateX(0);transform:perspective(400px)rotateX(0);opacity:1}}
-        @keyframes flipInX{0%{-webkit-transform:perspective(400px)rotateX(90deg);-ms-transform:perspective(400px)rotateX(90deg);transform:perspective(400px)rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(400px)rotateX(-10deg);-ms-transform:perspective(400px)rotateX(-10deg);transform:perspective(400px)rotateX(-10deg)}70%{-webkit-transform:perspective(400px)rotateX(10deg);-ms-transform:perspective(400px)rotateX(10deg);transform:perspective(400px)rotateX(10deg)}100%{-webkit-transform:perspective(400px)rotateX(0);-ms-transform:perspective(400px)rotateX(0);transform:perspective(400px)rotateX(0);opacity:1}}
-        @-webkit-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
-        @keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
-        @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}
-        @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-20px);-ms-transform:translateY(-20px);transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}}
-        <!--下面是输入预测-->
-        *{padding:0;margin:0}
-        li{list-style:none}
-        li:hover{background:#ccc}
-        #btn{width:150px;padding:10px 10px;border:1px solid rgb(244,248,244)}
-        a{display:inline-block;width:100%;text-decoration:none;color:rgba(0,0,0,0.8);outline:none;height:35px;line-height:35px}
-        <!--下面是居中-->
-        #content{position:absolute;top:50%;height:100px;margin-top:-200px}
+        .url {
+            color: #000;
+            height: 1.5em;
+            line-height: 1.5em;
+            width: 72px;
+            font-size: 0.75em;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: auto;
+            -webkit-border-top-right-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+            padding-top: 3px;
+            padding-bottom: 8px;
+        }
         .iframe-container {
             display: none;
-            height: 50vh; /* 设置 iframe 容器高度为视口高度的一半 */
+            height: 100vh; /* 设置 iframe 容器高度为视口高度 */
             width: 100%;
             overflow: hidden;
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: flipInY 1s forwards;
         }
         .iframe-container.active {
             display: block;
@@ -69,6 +140,56 @@
             height: 100%;
             border: none;
             overflow: auto; /* 允许 iframe 内容滚动 */
+        }
+        @keyframes flipInX {
+            0% {
+                transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            40% {
+                transform: perspective(400px) rotateX(-10deg);
+            }
+            70% {
+                transform: perspective(400px) rotateX(10deg);
+            }
+            100% {
+                transform: perspective(400px) rotateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes flipInY {
+            0% {
+                transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+            40% {
+                transform: perspective(400px) rotateY(-10deg);
+            }
+            70% {
+                transform: perspective(400px) rotateY(10deg);
+            }
+            100% {
+                transform: perspective(400px) rotateY(0);
+                opacity: 1;
+            }
         }
     </style>
     <script>
@@ -89,8 +210,14 @@
         }
 
         function toggleTab() {
-            document.getElementById('tab1').classList.toggle('active');
-            document.getElementById('tab2').classList.toggle('active');
+            var tab1 = document.getElementById('tab1');
+            var tab2 = document.getElementById('tab2');
+            if (tab1.classList.contains('active') || tab2.classList.contains('active')) {
+                tab1.classList.remove('active');
+                tab2.classList.remove('active');
+            } else {
+                tab1.classList.add('active');
+            }
         }
     </script>
 </head>
@@ -114,7 +241,7 @@
             <p class="url">天气</p>
         </div>
         <div class="box">
-            <a href="https://www.pornhub.com" target="_self" class="click"></a>
+            <a href="https://zZ1234567" target="_self" class="click"></a>
             <p><img class="icon" src="dy.svg" alt="成人"></p>
             <p class="url">成人</p>
         </div>
@@ -149,12 +276,12 @@
             <p><img class="icon" src="lianshu.png" alt="脸书"></p>
             <p class="url">脸书</p>
         </div>
-        <div id="tab1" class="iframe-container active">
-            <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
-        </div>
-        <div id="tab2" class="iframe-container">
-            <iframe src="https://n3xt.chat" allowfullscreen></iframe>
-        </div>
+    </div>
+    <div id="tab1" class="iframe-container">
+        <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
+    </div>
+    <div id="tab2" class="iframe-container">
+        <iframe src="https://n3xt.chat" allowfullscreen></iframe>
     </div>
 </body>
 </html>
