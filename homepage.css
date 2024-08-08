@@ -120,14 +120,13 @@ span {
     max-width: 72px;
 }
 .iframe-container {
-    display: none;
-    height: 50vh;
+    height: 0;
     width: 100%;
     overflow: hidden;
     position: relative;
 }
 .iframe-container.active {
-    display: block;
+    height: 50vh;
 }
 .iframe-container iframe {
     width: 100%;
