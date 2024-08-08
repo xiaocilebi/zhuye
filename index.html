@@ -22,7 +22,7 @@
         span{display:block;overflow:hidden;padding-left:5px;vertical-align:middle}
         .search_bar{box-shadow:0 0 18px rgba(70,70,40,.255);-webkit-animation:fadeIn 2.5s;animation:fadeIn 2.5s;background-color:rgba(255,255,255,.100);border-radius:25px;display:table;vertical-align:middle;width:80%;height:40px;max-width:400px;margin:10px auto}
         #search_submit{outline:0;height:40px;float:right;color:#eee;font-size:16px;font-weight:700;border:none;background-color:transparent;padding:0 13px 0 13px}
-        #content{width:100%;text-align:center;padding-top:15px;padding-bottom:15px;height:100vh;overflow:hidden;}
+        #content{width:100%;text-align:center;padding-top:15px;padding-bottom:15px}
         .icon {
             border: 0;
         }
@@ -53,14 +53,13 @@
         #btn{width:150px;padding:10px 10px;border:1px solid rgb(244,248,244)}
         a{display:inline-block;width:100%;text-decoration:none;color:rgba(0,0,0,0.8);outline:none;height:35px;line-height:35px}
         <!--下面是居中-->
+        #content{position:absolute;top:50%;height:100px;margin-top:-200px}
         .iframe-container {
             display: none;
-            height: 100vh; /* 设置 iframe 容器高度为视口高度 */
+            height: 50vh; /* 设置 iframe 容器高度为视口高度的一半 */
             width: 100%;
             overflow: hidden;
-            position: absolute; /* 确保它在主内容的后面 */
-            top: 0;
-            left: 0;
+            position: relative;
         }
         .iframe-container.active {
             display: block;
@@ -150,12 +149,12 @@
             <p><img class="icon" src="lianshu.png" alt="脸书"></p>
             <p class="url">脸书</p>
         </div>
-    </div>
-    <div id="tab1" class="iframe-container active">
-        <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
-    </div>
-    <div id="tab2" class="iframe-container">
-        <iframe src="https://n3xt.chat" allowfullscreen></iframe>
+        <div id="tab1" class="iframe-container active">
+            <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
+        </div>
+        <div id="tab2" class="iframe-container">
+            <iframe src="https://n3xt.chat" allowfullscreen></iframe>
+        </div>
     </div>
 </body>
 </html>
