@@ -9,13 +9,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: List files
+        run: ls -al ziti
+
       - name: Unzip file
-        run: unzip zhuzi-font.zip -d unzipped-fonts
+        run: unzip ziti/zhuzi-font.zip -d ziti/unzipped-fonts
       
-      - name: 提交更改
+      - name: Commit changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add .
+          git add ziti/unzipped-fonts
           git commit -m 'Unzipped zhuzi-font.zip'
           git push
