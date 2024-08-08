@@ -1,0 +1,21 @@
+name: Unzip File
+
+on: [push]
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Unzip file
+        run: unzip zhuzi-font.zip -d unzipped-fonts
+      
+      - name: 提交更改
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m 'Unzipped zhuzi-font.zip'
+          git push
