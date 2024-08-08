@@ -45,14 +45,13 @@
     </script>
     <style>
         .iframe-container {
-            display: none;
-            height: 50vh;
+            height: 0; /* 隐藏时设置高度为0 */
             width: 100%;
             overflow: hidden;
             position: relative;
         }
         .iframe-container.active {
-            display: block;
+            height: 50vh; /* 显示时设置高度 */
         }
         .iframe-container iframe {
             width: 100%;
