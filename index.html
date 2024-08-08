@@ -214,6 +214,7 @@ color: #b8b8b8;
         }
         .tab-content.active {
             display: block;
+            height: 200vh; /* 设置 iframe 高度为视口高度的两倍 */
         }
         .tab-content iframe {
             width: 100%;
@@ -236,7 +237,7 @@ color: #b8b8b8;
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
+            overflow: auto; /* 允许页面滚动 */
         }
     </style>
 </head>
@@ -249,11 +250,9 @@ color: #b8b8b8;
         <iframe src="https://n3xt.chat" allowfullscreen></iframe>
     </div>
     <script>
-        let currentTab = 1;
         function toggleTab() {
             document.getElementById('tab1').classList.toggle('active');
             document.getElementById('tab2').classList.toggle('active');
-            currentTab = currentTab === 1 ? 2 : 1;
         }
     </script>
 </body>
