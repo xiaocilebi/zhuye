@@ -206,25 +206,11 @@ color: #b8b8b8;
     <title>嵌入网页示例</title>
     <style>
         .tabs {
-            display: flex;
-            cursor: pointer;
-            background-color: #fff;
-            border-bottom: 1px solid #ccc;
-        }
-        .tab {
-            padding: 10px;
-            background-color: #f0f0f0;
-            margin-right: 5px;
-            border: 1px solid #ccc;
-            border-bottom: none;
-        }
-        .tab.active {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ffffff;
+            display: none; /* 隐藏 tabs */
         }
         .tab-content {
             display: none;
-            height: calc(100vh - 42px); /* 高度为视口高度减去 tabs 高度 */
+            height: 100vh; /* 设置 iframe 高度为视口高度 */
         }
         .tab-content.active {
             display: block;
@@ -233,6 +219,18 @@ color: #b8b8b8;
             width: 100%;
             height: 100%;
             border: none;
+        }
+        .switch-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
         body, html {
             margin: 0;
@@ -243,10 +241,7 @@ color: #b8b8b8;
     </style>
 </head>
 <body>
-    <div class="tabs">
-        <div class="tab active" onclick="openTab('tab1', this)">网站1</div>
-        <div class="tab" onclick="openTab('tab2', this)">网站2</div>
-    </div>
+    <button class="switch-button" onclick="toggleTab()">切换网站</button>
     <div id="tab1" class="tab-content active">
         <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
     </div>
@@ -254,18 +249,11 @@ color: #b8b8b8;
         <iframe src="https://n3xt.chat" allowfullscreen></iframe>
     </div>
     <script>
-        function openTab(tabId, element) {
-            var tabs = document.getElementsByClassName('tab-content');
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active');
-            }
-            document.getElementById(tabId).classList.add('active');
-            
-            var tabButtons = document.getElementsByClassName('tab');
-            for (var i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove('active');
-            }
-            element.classList.add('active');
+        let currentTab = 1;
+        function toggleTab() {
+            document.getElementById('tab1').classList.toggle('active');
+            document.getElementById('tab2').classList.toggle('active');
+            currentTab = currentTab === 1 ? 2 : 1;
         }
     </script>
 </body>
