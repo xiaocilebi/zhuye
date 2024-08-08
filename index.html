@@ -201,7 +201,7 @@ color: #b8b8b8;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YUOO主页</title>
     <style>
@@ -212,10 +212,6 @@ color: #b8b8b8;
         body {
             text-align: center;
             background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: auto; /* 允许页面滚动 */
         }
         img.smaller {
             width: 198px;
@@ -239,13 +235,6 @@ color: #b8b8b8;
             display: inline-block;
             width: 75px;
         }
-        .box a {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
         .url {
             color: #000;
             height: 1.5em;
@@ -262,18 +251,6 @@ color: #b8b8b8;
             width: 3em;
             height: 3em;
             max-width: 72px;
-        }
-        .switch-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
         }
         .iframe-container {
             display: none;
@@ -337,7 +314,7 @@ color: #b8b8b8;
 <body>
     <div id="content">
         <div class="search_part">
-            <a class="logo" href="https://m.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_PclogoS_8whnvm25&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pcs">
+            <a class="logo" href="#" onclick="toggleTab()">
                 <img class="smaller" src="logo.gif" alt="Logo">
             </a>
             <br>
@@ -353,7 +330,6 @@ color: #b8b8b8;
             <p class="url">天气</p>
         </div>
         <!-- 其他导航链接 -->
-        <button class="switch-button" onclick="toggleTab()">切换网站</button>
         <div id="tab1" class="iframe-container active">
             <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
         </div>
