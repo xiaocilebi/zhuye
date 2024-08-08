@@ -207,23 +207,26 @@ color: #b8b8b8;
     <style>
         .iframe-container {
             display: flex;
+            flex-direction: column; /* 将方向改为列方向，实现垂直排列 */
             width: 100%;
             height: 200vh; /* 设置容器高度为视口高度的两倍 */
             margin: 0; /* 去掉默认的外边距 */
             padding: 0; /* 去掉默认的内边距 */
             border: none; /* 去掉容器的边框 */
-            overflow: auto; /* 添加滚动条 */
+            overflow: hidden; /* 去掉滚动条 */
+            background-color: #ffffff; /* 设置背景颜色 */
         }
         .iframe-container iframe {
-            width: 50%; /* 每个 iframe 占据一半的宽度 */
-            height: 200vh; /* 设置 iframe 高度为视口高度的两倍 */
+            width: 100%; /* 每个 iframe 占据全部宽度 */
+            height: 100vh; /* 设置 iframe 高度为视口高度 */
             border: none; /* 去掉 iframe 的边框 */
         }
         body, html {
             margin: 0; /* 去掉 body 和 html 的默认外边距 */
             padding: 0; /* 去掉 body 和 html 的默认内边距 */
             height: 100%; /* 使 body 和 html 高度为 100% */
-            overflow: auto; /* 防止出现滚动条 */
+            overflow: hidden; /* 防止出现滚动条 */
+            background-color: #ffffff; /* 设置背景颜色 */
         }
     </style>
 </head>
