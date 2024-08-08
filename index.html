@@ -203,26 +203,68 @@ color: #b8b8b8;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>嵌入网页示例</title>
+    <title>YUOO主页</title>
     <style>
-        .tabs {
-            display: none; /* 隐藏 tabs */
+        * {
+            padding: 0;
+            margin: 0;
         }
-        .tab-content {
-            display: none;
-            height: 100vh; /* 设置 iframe 高度为视口高度 */
+        body {
+            text-align: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto; /* 允许页面滚动 */
         }
-        .tab-content.active {
-            display: block;
-            height: 200vh; /* 设置 iframe 高度为视口高度的两倍 */
+        img.smaller {
+            width: 198px;
+            height: 94px;
+            max-width: 250px;
+            animation: flipInX 4s;
+            -webkit-animation: flipInX 4s;
         }
-        .tab-content iframe {
+        .logo {
+            font-size: 2em;
+            white-space: normal;
+            word-wrap: break-word;
+            text-decoration: none;
+            color: #232323;
+        }
+        .search_part {
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        .box {
+            display: inline-block;
+            width: 75px;
+        }
+        .box a {
             width: 100%;
             height: 100%;
-            border: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .url {
+            color: #000;
+            height: 1.5em;
+            line-height: 1.5em;
+            width: 72px;
+            font-size: 0.75em;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: auto;
+            padding-top: 3px;
+            padding-bottom: 8px;
+        }
+        .icon {
+            width: 3em;
+            height: 3em;
+            max-width: 72px;
         }
         .switch-button {
-            position: absolute;
+            position: fixed;
             top: 10px;
             right: 10px;
             z-index: 1000;
@@ -233,23 +275,101 @@ color: #b8b8b8;
             cursor: pointer;
             border-radius: 5px;
         }
-        body, html {
-            margin: 0;
-            padding: 0;
+        .iframe-container {
+            display: none;
+            height: 200vh; /* 设置 iframe 高度为视口高度的两倍 */
+            width: 100%;
+        }
+        .iframe-container.active {
+            display: block;
+        }
+        .iframe-container iframe {
+            width: 100%;
             height: 100%;
-            overflow: auto; /* 允许页面滚动 */
+            border: none;
+        }
+        @-webkit-keyframes flipInX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(90deg);
+                transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            40% {
+                -webkit-transform: perspective(400px) rotateX(-10deg);
+                transform: perspective(400px) rotateX(-10deg);
+            }
+            70% {
+                -webkit-transform: perspective(400px) rotateX(10deg);
+                transform: perspective(400px) rotateX(10deg);
+            }
+            100% {
+                -webkit-transform: perspective(400px) rotateX(0);
+                transform: perspective(400px) rotateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes flipInX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(90deg);
+                -ms-transform: perspective(400px) rotateX(90deg);
+                transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            40% {
+                -webkit-transform: perspective(400px) rotateX(-10deg);
+                -ms-transform: perspective(400px) rotateX(-10deg);
+                transform: perspective(400px) rotateX(-10deg);
+            }
+            70% {
+                -webkit-transform: perspective(400px) rotateX(10deg);
+                -ms-transform: perspective(400px) rotateX(10deg);
+                transform: perspective(400px) rotateX(10deg);
+            }
+            100% {
+                -webkit-transform: perspective(400px) rotateX(0);
+                -ms-transform: perspective(400px) rotateX(0);
+                transform: perspective(400px) rotateX(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <button class="switch-button" onclick="toggleTab()">切换网站</button>
-    <div id="tab1" class="tab-content active">
-        <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
-    </div>
-    <div id="tab2" class="tab-content">
-        <iframe src="https://n3xt.chat" allowfullscreen></iframe>
+    <div id="content">
+        <div class="search_part">
+            <a class="logo" href="https://m.baidu.com/s?wd=%E4%BB%8A%E6%97%A5%E6%96%B0%E9%B2%9C%E4%BA%8B&tn=SE_PclogoS_8whnvm25&sa=ire_dl_gh_logo&rsv_dl=igh_logo_pcs">
+                <img class="smaller" src="logo.gif" alt="Logo">
+            </a>
+            <br>
+            <form onsubmit="return search()" class="search_bar">
+                <span><input class="search" type="text" value="" autocomplete="off" id="search_input"></span>
+                <ul id="ul"></ul>
+            </form>
+        </div>
+        <br>
+        <div class="box">
+            <a href="https://g.co/kgs/3DGUEMA" target="_self" class="click"></a>
+            <p><img class="icon" src="tianqi.png" alt="天气"></p>
+            <p class="url">天气</p>
+        </div>
+        <!-- 其他导航链接 -->
+        <button class="switch-button" onclick="toggleTab()">切换网站</button>
+        <div id="tab1" class="iframe-container active">
+            <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
+        </div>
+        <div id="tab2" class="iframe-container">
+            <iframe src="https://n3xt.chat" allowfullscreen></iframe>
+        </div>
     </div>
     <script>
+        function search() {
+            if (document.getElementById("search_input").value != "") {
+                window.location.href = "https://www.google.com/search?q=" + document.getElementById("search_input").value;
+                document.getElementById("search_input").value = "";
+            }
+            return false;
+        }
+
         function toggleTab() {
             document.getElementById('tab1').classList.toggle('active');
             document.getElementById('tab2').classList.toggle('active');
