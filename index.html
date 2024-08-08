@@ -208,10 +208,11 @@ color: #b8b8b8;
         .iframe-container {
             display: flex;
             width: 100%;
-            height: 100%; /* 设置容器高度为 100% */
+            height: calc(200vh - 100px); /* 设置容器高度为视口高度的两倍减去头部的高度 */
             margin: 0; /* 去掉默认的外边距 */
             padding: 0; /* 去掉默认的内边距 */
             border: none; /* 去掉容器的边框 */
+            background-color: white; /* 设置背景颜色为白色，和主页一致 */
         }
         .iframe-container iframe {
             width: 50%; /* 每个 iframe 占据一半的宽度 */
@@ -223,10 +224,23 @@ color: #b8b8b8;
             padding: 0; /* 去掉 body 和 html 的默认内边距 */
             height: 100%; /* 使 body 和 html 高度为 100% */
             overflow: hidden; /* 防止出现滚动条 */
+            background-color: white; /* 设置背景颜色为白色，和主页一致 */
+        }
+        .header {
+            width: 100%;
+            height: 100px; /* 设置头部高度 */
+            background-color: white; /* 设置背景颜色与主页一致 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <!-- 你的头部内容，比如 logo 等 -->
+        <img src="your-logo.png" alt="Logo">
+    </div>
     <div class="iframe-container">
         <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
         <iframe src="https://n3xt.chat" allowfullscreen></iframe> <!-- 替换为你希望嵌入的第二个网站 -->
