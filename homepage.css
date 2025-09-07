@@ -16,7 +16,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* 推荐加入，避免 padding 影响盒子大小 */
+    box-sizing: border-box;
 }
 
 body {
@@ -69,27 +69,31 @@ body {
     font-family: var(--font-main);
 }
 
-/* --- 链接网格 (使用 CSS Grid) --- */
+/* --- 链接网格 (恢复 inline-block 布局) --- */
 .link-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* 核心：自适应网格 */
-    gap: 20px; /* 控制间距 */
     padding-top: 15px;
     animation: fadeInDown 1s;
+}
+
+.box {
+    display: inline-block;
+    vertical-align: top;
+    width: 75px;
+    margin: 8px; /* 模拟间距 */
 }
 
 .box a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* 图标和文字的间距 */
+    gap: 8px;
     text-decoration: none;
     color: var(--color-text);
-    transition: transform 0.2s ease; /* 添加悬浮效果 */
+    transition: transform 0.2s ease;
 }
 
 .box a:hover {
-    transform: scale(1.1); /* 鼠标悬浮时放大 */
+    transform: scale(1.1);
 }
 
 .icon {
@@ -98,7 +102,11 @@ body {
 }
 
 .url {
-    font-size: 0.8em;
+    font-size: 0.75em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 72px;
 }
 
 /* --- 移动端响应式布局 --- */
@@ -106,9 +114,7 @@ body {
     .search_bar {
         width: 100%;
     }
-
-    .link-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-        gap: 15px;
+    .box {
+        margin: 5px;
     }
 }
