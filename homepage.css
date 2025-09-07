@@ -24,13 +24,17 @@ body {
     font-family: var(--font-main);
     color: var(--color-text);
     text-align: center;
-    padding: 20px;
+    /* 移除全局 padding */
 }
 
 /* --- 主要容器与 Logo --- */
 .container {
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
+    /* 恢复原始的垂直内边距 */
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .logo-container {
@@ -53,15 +57,12 @@ body {
     max-width: 400px;
     height: 40px;
     margin: 10px auto 30px;
-    
-    /* 使用 Flexbox 仅用于对齐 */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #search_input {
-    /* 恢复所有原始尺寸和样式 */
     width: 90%;
     height: 45px;
     background-color: transparent;
@@ -74,15 +75,12 @@ body {
     font-family: var(--font-main);
 }
 
-
 /* --- 链接网格 (使用 CSS Grid 精准复刻原始布局) --- */
 .link-grid {
     display: grid;
-    /* 核心：创建固定为75px宽的列，并自动换行 */
-    grid-template-columns: repeat(auto-fill, 75px); 
-    /* 核心：让整个网格在容器内水平居中 */
+    grid-template-columns: repeat(auto-fill, 75px);
     justify-content: center;
-    gap: 15px; /* 用 gap 精准控制间距，比 margin 更好 */
+    gap: 15px;
     padding-top: 15px;
     animation: fadeInDown 1s;
 }
@@ -111,7 +109,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%; /* 宽度继承自网格列宽 */
+    width: 100%;
 }
 
 /* --- 移动端响应式布局 --- */
