@@ -10,7 +10,7 @@
 @font-face {
     font-family: 'ZhuziFont';
     src: url('zhuzi-font.woff2') format('woff2');
-    font-display: swap; /* 优化字体加载 */
+    font-display: swap;
 }
 
 * {
@@ -69,17 +69,16 @@ body {
     font-family: var(--font-main);
 }
 
-/* --- 链接网格 (恢复 inline-block 布局) --- */
+/* --- 链接网格 (使用 CSS Grid 精准复刻原始布局) --- */
 .link-grid {
+    display: grid;
+    /* 核心：创建固定为75px宽的列，并自动换行 */
+    grid-template-columns: repeat(auto-fill, 75px); 
+    /* 核心：让整个网格在容器内水平居中 */
+    justify-content: center;
+    gap: 15px; /* 用 gap 精准控制间距，比 margin 更好 */
     padding-top: 15px;
     animation: fadeInDown 1s;
-}
-
-.box {
-    display: inline-block;
-    vertical-align: top;
-    width: 75px;
-    margin: 8px; /* 模拟间距 */
 }
 
 .box a {
@@ -106,15 +105,12 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 72px;
+    width: 100%; /* 宽度继承自网格列宽 */
 }
 
 /* --- 移动端响应式布局 --- */
 @media (max-width: 600px) {
     .search_bar {
         width: 100%;
-    }
-    .box {
-        margin: 5px;
     }
 }
