@@ -1,28 +1,127 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YUOO主页</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description" content="YUOO主页是一个简单，纯粹的手机导航网站。">
+    <meta name="keywords" content="yuoo,m.yuoo.cn,手机导航,主页">
+    <link rel="bookmark" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://img-1257210002.file.myqcloud.com/2020/02/26/jl6dok4zcpqatuj3.jpg">
     <link rel="stylesheet" href="homepage.css">
+    <script>
+        var _hmt=_hmt||[];
+        (function(){
+            var hm=document.createElement("script");
+            hm.src="https://hm.baidu.com/hm.js?fafa48c9812cf9e721bde90f8a9a017e";
+            var s=document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm,s);
+        })();
+
+        var clickCount = 0;
+
+        function toggleTab() {
+            clickCount++;
+            if (clickCount % 3 === 1) {
+                document.getElementById('tab1').classList.add('active');
+                document.getElementById('tab2').classList.remove('active');
+            } else if (clickCount % 3 === 2) {
+                document.getElementById('tab1').classList.remove('active');
+                document.getElementById('tab2').classList.add('active');
+            } else {
+                document.getElementById('tab1').classList.remove('active');
+                document.getElementById('tab2').classList.remove('active');
+            }
+        }
+
+        function search() {
+            if (document.getElementById("search_input").value != "") {
+                window.location.href = "https://www.google.com/search?q=" + document.getElementById("search_input").value;
+                document.getElementById("search_input").value = "";
+            }
+            return false;
+        }
+    </script>
+    <style>
+        .iframe-container {
+            height: 0; /* 隐藏时设置高度为0 */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .iframe-container.active {
+            height: 50vh; /* 显示时设置高度 */
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: auto;
+        }
+    </style>
 </head>
 <body>
-
-    <main class="container">
-        <div class="logo-container">
-            <a href="#" aria-label="返回主页">
-                <img src="logo.gif" alt="动态Logo" class="logo">
+    <div id="content">
+        <br>
+        <div class="search_part">
+            <a class="logo" href="#" onclick="toggleTab()">
+                <img class="smaller" src="logo.gif" alt="Logo">
             </a>
+            <br>
+            <form onsubmit="return search()" class="search_bar">
+                <span><input class="search" type="text" value="" autocomplete="off" id="search_input"></span>
+                <ul id="ul"></ul>
+            </form>
         </div>
-
-        <div class="search_bar">
-            <input type="text" id="search_input" placeholder="Search...">
+        <br>
+        <div class="box">
+            <a href="https://g.co/kgs/3DGUEMA" target="_self" class="click"></a>
+            <p><img class="icon" src="tianqi.png" alt="天气"></p>
+            <p class="url">天气</p>
         </div>
-
-        <!-- 导航链接将由 JavaScript 动态插入这里 -->
-        <nav id="link-grid" class="link-grid"></nav>
-    </main>
-
-    <script src="app.js"></script>
+        <div class="box">
+            <a href="https://www.pornhub.com" target="_self" class="click"></a>
+            <p><img class="icon" src="dy.svg" alt="成人"></p>
+            <p class="url">成人</p>
+        </div>
+        <div class="box">
+            <a href="https://www.twitter.com/" target="_self" class="click"></a>
+            <p><img class="icon" src="tt.png" alt="推特"></p>
+            <p class="url">推特</p>
+        </div>
+        <div class="box">
+            <a href="https://theporndude.com/" target="_self" class="click"></a>
+            <p><img class="icon" src="zhihu.svg" alt="导航"></p>
+            <p class="url">导航</p>
+        </div>
+        <br>
+        <div class="box">
+            <a href="https://translate.google.com/?source=osdd&sl=zh-CN&tl=en&op=translate" target="_self" class="click"></a>
+            <p><img class="icon" src="fanyi.svg" alt="翻译"></p>
+            <p class="url">翻译</p>
+        </div>
+        <div class="box">
+            <a href="https://m.bilibili.com/" target="_self" class="click"></a>
+            <p><img class="icon" src="bilibili.png" alt="B站"></p>
+            <p class="url">B站</p>
+        </div>
+        <div class="box">
+            <a href="https://linux.do/" target="_self" class="click"></a>
+            <p><img class="icon" src="LinuxDo.png" alt="ChatGPT"></p>
+            <p class="url">LinuxDo</p>
+        </div>
+        <div class="box">
+            <a href="https://lobe-chat-dahai913.vercel.app" target="_self" class="click"></a>
+            <p><img class="icon" src="LobeChat.png" alt="LobeChat"></p>
+            <p class="url">LobeChat</p>
+        </div>
+        <div id="tab1" class="iframe-container">
+            <iframe src="https://chat.oaichat.cc" allowfullscreen></iframe>
+        </div>
+        <div id="tab2" class="iframe-container">
+            <iframe src="https://chat.voct.dev/?token=xiaocilebi" allowfullscreen></iframe>
+        </div>
+    </div>
 </body>
 </html>
