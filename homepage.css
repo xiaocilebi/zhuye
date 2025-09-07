@@ -43,7 +43,7 @@ body {
     animation: flipInX 4s;
 }
 
-/* --- 搜索框 --- */
+/* --- 搜索框 (使用 Flexbox 精准复刻原始布局) --- */
 .search_bar {
     box-shadow: var(--search-bar-shadow);
     animation: fadeIn 2.5s;
@@ -52,22 +52,28 @@ body {
     width: 80%;
     max-width: 400px;
     height: 40px;
-    margin: 20px auto 30px;
+    margin: 10px auto 30px;
+    
+    /* 使用 Flexbox 仅用于对齐 */
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 #search_input {
-    width: 100%;
-    height: 100%;
+    /* 恢复所有原始尺寸和样式 */
+    width: 90%;
+    height: 45px;
     background-color: transparent;
     border: none;
     outline: 0;
-    font-size: 16px;
+    font-size: 18px;
     color: #426ab3;
     padding: 0 20px;
+    border-radius: 50px;
     font-family: var(--font-main);
 }
+
 
 /* --- 链接网格 (使用 CSS Grid 精准复刻原始布局) --- */
 .link-grid {
